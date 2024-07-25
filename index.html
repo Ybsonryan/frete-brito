@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Serviço de Fretes - Transporte de mudanças, materiais de construção, madeira e serviços personalizados.">
+    <meta name="keywords" content="fretes, mudanças, transporte, materiais de construção, madeira">
+    <title>Serviço de Fretes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Brito Fretes</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="container">
+                <div class="text-content">
+                    <h2>Bem-vindo ao nosso Serviço de fretes!</h2>
+                    <p>Oferecemos serviços de transporte para mudanças, materiais de construção e madeira, com segurança e pontualidade.</p>
+                </div>
+                <div class="image-content">
+                    <img src="transferir.jfif" alt="Imagem de boas-vindas" class="intro-image">
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2>Nossos Serviços</h2>
+                <div class="services-list">
+                    <div class="service-item">
+                        <div class="icon"><i class="fas fa-truck-moving"></i></div>
+                        <p>Mudanças residenciais e comerciais</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="icon"><i class="fas fa-tools"></i></div>
+                        <p>Transporte de materiais de construção</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="icon"><i class="fas fa-tree"></i></div>
+                        <p>Transporte de madeira</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="icon"><i class="fas fa-cogs"></i></div>
+                        <p>Serviços personalizados</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Contato</h2>
+                <form id="contact-form">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="phone">Telefone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    
+                    <label for="pickup-address">Endereço de Coleta:</label>
+                    <input type="text" id="pickup-address" name="pickup-address" required>
+                    
+                    <label for="delivery-address">Endereço de Entrega:</label>
+                    <input type="text" id="delivery-address" name="delivery-address" required>
+                    
+                    <label for="date">Data do Serviço:</label>
+                    <input type="date" id="date" name="date" required>
+                    
+                    <label for="type-of-cargo">Tipo de Carga:</label>
+                    <select id="type-of-cargo" name="type-of-cargo">
+                        <option value="mudancas">Mudanças</option>
+                        <option value="materiais">Materiais de Construção</option>
+                        <option value="madeira">Madeira</option>
+                        <option value="outros">Outros</option>
+                    </select>
+                    
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" required></textarea>
+                    
+                    <button type="submit">Enviar</button>
+                </form>
+                
+                <div id="map"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>Endereço: Rua Victor Gonçalves Neto, 13 - Caxias, Maranhão</p>
+                    <p>Telefone: (12) 3456-7890</p>
+                    <p>Email: contato@servicofretes.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Navegação</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Siga-nos</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Brito Fretes. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATQrqvCuZTjA3iTNACX3L_Odb3IrMvFvA"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+        function initMap() {
+            const coordenadas = { lat: -4.86283, lng: -43.34741 };
+            const mapOptions = {
+                zoom: 15,
+                center: coordenadas
+            };
+            const map = new google.maps.Map(document.getElementById("map"), mapOptions);
+            const marker = new google.maps.Marker({
+                position: coordenadas,
+                map: map,
+                title: "Caxias"
+            });
+        }
+
+        window.onload = function() {
+            initMap();
+        };
+    </script>
+</body>
+</html>
